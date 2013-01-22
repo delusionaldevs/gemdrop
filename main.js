@@ -40,13 +40,14 @@ var GemDrop = {
 	Resources.images.add('redgem', img);
 	
 	var redGem = new Sprite(Resources.images.get('redgem'));
+	redGem.translate(100, 75, 0);
 	
 	var gameLoop = function(){		
 		
 		// Clear the canvas.
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		
-		redGem.Animation.sineOut(context, 0.8, 0.001);
+		redGem.sineOut(10, 5 / 1000);
 		redGem.draw(context);
 		
 		var timerID = setTimeout(gameLoop, 1000 / 50);
@@ -64,7 +65,7 @@ function isCanvasSupported(){
 	return !!(canvas.getContext && canvas.getContext('2d'));
 }
 
-function loadScript(url, callback, args){		
+function loadScript(url, callback){		
 	var head = document.getElementsByTagName('head')[0];
 	var title = document.getElementsByTagName('title')[0];
 	
@@ -79,10 +80,3 @@ function loadScript(url, callback, args){
 	
 	head.insertBefore(js, title.nextSibling);
 }
-
-window.addEventListener('load', function(){
-	// TODO Fix loadScript to load scripts one at a time.
-	loadScript('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', loadScript, ['libs/c/library.js', ]
-			loadScript('libs/c/library.js',
-					loadScript('libs/c/Sprite.js', GemDrop.Init)));
-});
