@@ -10,7 +10,7 @@ function Sprite(img){
 	this.height = this.oHeight;
 	this.position = new Point();
 	
-	this.draw = function(ctx){
+	this.update = function(ctx){
 		ctx.drawImage(this.img, this.position.x, this.position.y, this.width, this.height);
 	};
 	

@@ -34,25 +34,20 @@ var GemDrop = {
 	//**********************************
 	// Game Loop
 	
-	var img = new Image();
-	img.src = "images/redjewel1.jpg";
-	
-	Resources.images.add('redgem', img);
-	
-	var redGem = new Sprite(Resources.images.get('redgem'));
-	redGem.translate(100, 75, 0);
-	
-	var gameLoop = function(){		
+	var gs = new GemStore();
+	gs.populateStore();
 		
-		// Clear the canvas.
-		context.clearRect(0, 0, canvas.width, canvas.height);
-		
-		redGem.sineOut(10, 5 / 1000);
-		redGem.draw(context);
-		
-		var timerID = setTimeout(gameLoop, 1000 / 50);
-	};
-	gameLoop();
+	Game.Init();
+	
+	
+//	var gameLoop = function(){		
+//		
+//		// Clear the canvas.
+//		context.clearRect(0, 0, canvas.width, canvas.height);
+//		
+//		var timerID = setTimeout(gameLoop, 1000 / 33.34);
+//	};
+//	gameLoop();
 	
 	//**********************************
 	
@@ -65,6 +60,8 @@ function isCanvasSupported(){
 	return !!(canvas.getContext && canvas.getContext('2d'));
 }
 
+// USE ANON FUNCTIONS AS callback
+//
 //function loadScript(url, callback){		
 //	var head = document.getElementsByTagName('head')[0];
 //	var title = document.getElementsByTagName('title')[0];
