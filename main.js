@@ -65,18 +65,18 @@ function isCanvasSupported(){
 	return !!(canvas.getContext && canvas.getContext('2d'));
 }
 
-function loadScript(url, callback){		
-	var head = document.getElementsByTagName('head')[0];
-	var title = document.getElementsByTagName('title')[0];
-	
-	var js = document.createElement('script');
-	js.type = 'text/javascript';
-	js.src = url;
-	
-	if (js.onreadystatechange)
-		js.onreadystatechange = callback;
-	else
-		js.onload = callback;
-	
-	head.insertBefore(js, title.nextSibling);
-}
+//function loadScript(url, callback){		
+//	var head = document.getElementsByTagName('head')[0];
+//	var title = document.getElementsByTagName('title')[0];
+//	
+//	var js = document.createElement('script');
+//	js.type = 'text/javascript';
+//	js.src = url;
+//	
+//	if (js.onreadystatechange)
+//		js.onreadystatechange = callback;
+//	else
+//		js.onload = callback;
+//	
+//	head.insertBefore(js, title.nextSibling);
+//}

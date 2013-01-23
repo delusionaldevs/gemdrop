@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="libs/h/|libs/c/" kind="src" path=""/>
+	<classpathentry kind="src" path="libs/c"/>
+	<classpathentry kind="src" path="libs/h"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary/StandardBrowser/html5"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
