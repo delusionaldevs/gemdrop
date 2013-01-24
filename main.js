@@ -33,21 +33,20 @@ var GemDrop = {
 	
 	//**********************************
 	// Game Loop
-	
-	var gs = new GemStore();
-	gs.populateStore();
 		
-	Game.Init();
+	Game.Init(context);
 	
 	
-//	var gameLoop = function(){		
-//		
-//		// Clear the canvas.
-//		context.clearRect(0, 0, canvas.width, canvas.height);
-//		
-//		var timerID = setTimeout(gameLoop, 1000 / 33.34);
-//	};
-//	gameLoop();
+	var gameLoop = function(){		
+		
+		// Clear the canvas.
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		
+		Game.Run(canvas, context);
+		
+		var timerID = setTimeout(gameLoop, 1000 / 33.34);
+	};
+	gameLoop();
 	
 	//**********************************
 	

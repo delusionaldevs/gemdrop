@@ -1,7 +1,7 @@
 function Sprite(img){
 	this.img = img;
 	
-	if (img){
+	if (img instanceof Image){
 		this.oWidth = this.img.width;
 		this.oHeight = this.img.height;
 		this.aspectRatio = (Math.max(this.oWidth, this.oHeight) == this.oWidth) ? (this.oHeight / this.oWidth) : (this.oWidth / this.oHeight);
@@ -13,6 +13,11 @@ function Sprite(img){
 	this.update = function(ctx){
 		ctx.drawImage(this.img, this.position.x, this.position.y, this.width, this.height);
 	};
+	
+	this.setPosition = function(x, y){
+		this.position.x = x;
+		this.position.y = y;
+	}
 	
 	this.getPosition = function(){
 		return this.position;
@@ -46,8 +51,8 @@ function Sprite(img){
 	};
 	
 	this.translate = function(x, y, speed){
-		this.position.x = x;
-		this.position.y = y;
+		this.position.x += x;
+		this.position.y += y;
 	};	
 	
 	this.sineOut = function(amplitude, frequency){
