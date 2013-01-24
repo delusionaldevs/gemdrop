@@ -16,14 +16,18 @@ var GemDrop = {
 	var errorMsg = document.createElement('div');
 	errorMsg.class = 'errorMsg';
 	
-	var canvas = document.createElement('canvas');
-	canvas.id = 'mainCanvas';
-	canvas.width = '800';
-	canvas.height = '600';
-	body.appendChild(canvas);
+	var canvas1 = document.createElement('canvas');
+	var canvas2 = document.createElement('canvas');
+	canvas1.id = 'canvas1';
+	canvas2.id = 'canvas2';
+	canvas1.width = '800';
+	canvas1.height = '600';
+	canvas2.width = canvas1.width;
+	canvas2.height = canvas1.height;
+	body.appendChild(canvas1);
 	
 	// Get the context to draw on.
-	context = canvas.getContext('2d');
+	context = canvas1.getContext('2d');
 	
 	if (typeof context === 'undefined'){
 		errorMsg.text = 'The canvas context could not be obtained.';
@@ -31,18 +35,19 @@ var GemDrop = {
 		return;
 	}
 	
-	//**********************************
-	// Game Loop
-		
+	// Setup the initial game state.
 	Game.Init(context);
 	
+	//**********************************
+	// Game Loop
 	
-	var gameLoop = function(){		
+	var gameLoop = function(){
 		
-		// Clear the canvas.
-		context.clearRect(0, 0, canvas.width, canvas.height);
+		// Get the player input.
+		// Update the game logic.
+		// Draw the screen.		
 		
-		Game.Run(canvas, context);
+		Game.Run(canvas1, context);
 		
 		var timerID = setTimeout(gameLoop, 1000 / 33.34);
 	};
